@@ -113,4 +113,4 @@ The compiled output will be generated inside `frontend/dist/`.
 ---
 
 ## 📄 License
-© 1894-2024 Talikapatra Archival Systems. All rights reserved. Registered under institutional access licenses.
+© 2026 Talikapatra Archival Systems. All rights reserved. Registered under institutional access licenses.
