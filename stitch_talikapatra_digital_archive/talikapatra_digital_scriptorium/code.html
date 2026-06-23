@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Talikapatra | Research Collections</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#ddd9d5",
+                        "primary-container": "#1a2b3c",
+                        "primary": "#041627",
+                        "surface-container-high": "#ebe8e3",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fdcb9b",
+                        "primary-fixed": "#d2e4fb",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e6e2dd",
+                        "on-tertiary-container": "#cd7880",
+                        "secondary-fixed": "#ffdcbd",
+                        "on-secondary-container": "#79542d",
+                        "tertiary-container": "#4f141d",
+                        "inverse-primary": "#b7c8de",
+                        "surface-container": "#f1ede8",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "outline": "#74777d",
+                        "secondary": "#7c5730",
+                        "tertiary-fixed": "#ffdadb",
+                        "surface-tint": "#4f6073",
+                        "secondary-fixed-dim": "#eebd8e",
+                        "surface-container-low": "#f7f3ee",
+                        "on-secondary-fixed-variant": "#61401b",
+                        "tertiary": "#33010a",
+                        "on-primary-container": "#8192a7",
+                        "background": "#fdf9f4",
+                        "inverse-on-surface": "#f4f0eb",
+                        "on-error": "#ffffff",
+                        "surface": "#fdf9f4",
+                        "on-tertiary-fixed": "#3c0610",
+                        "outline-variant": "#c4c6cd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "on-primary-fixed": "#0b1d2d",
+                        "surface-variant": "#e6e2dd",
+                        "surface-bright": "#fdf9f4",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b7c8de",
+                        "inverse-surface": "#31302d",
+                        "on-tertiary-fixed-variant": "#753139",
+                        "on-primary-fixed-variant": "#38485a",
+                        "on-surface": "#1c1c19",
+                        "tertiary-fixed-dim": "#ffb2b8",
+                        "on-secondary-fixed": "#2c1600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "body-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-sm": ["EB Garamond"],
+                        "display-lg-mobile": ["EB Garamond"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "caption": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .parchment-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+
+        .double-rule {
+            border-top: 1px solid #E8DFCC;
+            border-bottom: 1px solid #E8DFCC;
+            height: 3px;
+        }
+
+        .archive-card-hover {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+
+        .archive-card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(26, 43, 60, 0.1);
+        }
+
+        /* Custom Scrollbar for Scholarly Feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #fdf9f4; }
+        ::-webkit-scrollbar-thumb { background: #e8dfcc; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a67c52; }
+    </style>
+</head>
+<body class="bg-background text-on-background parchment-texture min-h-screen flex">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="hidden md:flex flex-col h-full py-8 px-4 gap-4 bg-surface-container-low dark:bg-primary-container border-r border-surface-variant dark:border-outline-variant fixed left-0 w-72 z-50">
+<div class="mb-8 px-4">
+<h1 class="font-display-lg text-headline-sm text-primary dark:text-on-primary-container tracking-tight">Talikapatra</h1>
+<p class="font-body-md text-on-surface-variant opacity-70">Archives of Antiquity</p>
+</div>
+<nav class="flex flex-col gap-1">
+<!-- Active: Collections -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary border-l-4 border-secondary font-label-caps text-label-caps uppercase tracking-widest transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+                Collections
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all font-label-caps text-label-caps uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">architecture</span>
+                Workspace
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all font-label-caps text-label-caps uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+                Sources
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all font-label-caps text-label-caps uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">timeline</span>
+                Chronology
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all font-label-caps text-label-caps uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">groups</span>
+                Actors
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-all font-label-caps text-label-caps uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+                Assistant
+            </a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full bg-primary text-background py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary transition-colors duration-300 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Investigation
+            </button>
+<div class="mt-8 flex items-center gap-3 pt-6 border-t border-surface-variant">
+<img class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A portrait of an elderly, distinguished academic researcher with spectacles and a thoughtful expression, dressed in a tweed blazer. The background is a dimly lit, vast classical library with floor-to-ceiling wooden bookshelves and a warm, atmospheric amber glow. The style is modern editorial photography with high contrast and deep shadows, emphasizing scholarly wisdom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWpYbahuLKwZNk7tLzSnyGqmgycm4s_bUznZtvdGLP0iRw3tWtrQjQ7yBqYg5uhXly4xY3zPg44pi69WEsL9Lnp1xPxgt09r-UM4y1m4xT4q0W7UqpD8fwccgh58XC6PFhKF0bMzIhkMNP1c4JNc2yeCmpfBnnphhGxffrd2KF5gk0yH-ejpZfPGwKTaHBcox39dJ7t7Lbi_8enMTToC0cPtT6jiptRDYi-DGAmYMjXGsfQ3clnAUBQqTM579SRzeNU6l2ws80Zg"/>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Curator Profile</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Chief Historian</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-72 flex flex-col min-h-screen">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="flex justify-between items-center w-full px-gutter py-4 h-20 bg-background dark:bg-background border-b border-surface-variant dark:border-outline-variant sticky top-0 z-40">
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-surface-container-low px-4 py-2 border-b border-secondary">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-body-md text-on-surface ml-2 w-64 placeholder:text-outline-variant" placeholder="Search Archives..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:text-secondary transition-colors">notifications</button>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:text-secondary transition-colors">settings</button>
+</div>
+</header>
+<!-- Content Area -->
+<section class="max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-12">
+<!-- Header Section -->
+<div class="mb-12 text-center">
+<p class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em] mb-2">Central Library</p>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Research Collections</h2>
+<div class="w-24 h-[1px] bg-secondary mx-auto mt-6"></div>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto mt-6 leading-relaxed">
+                    Access and manage curated historical investigations. Each entry represents a comprehensive archival dataset spanning centuries of documented human intent and structural evolution.
+                </p>
+</div>
+<!-- Library Catalog Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Archive Card 1 -->
+<article class="bg-[#F9F5F0] border border-[#E8DFCC] archive-card-hover relative flex flex-col group h-full">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="p-8 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-secondary">REF: SR-1204</span>
+<div class="w-10 h-10 rounded-full border border-dashed border-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">The Silk Road Expansion</h3>
+<p class="font-caption text-on-surface-variant italic mb-6">Geopolitical Analysis</p>
+<div class="double-rule mb-6"></div>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">142</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sources</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">86</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Events</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">312</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Entities</p>
+</div>
+</div>
+<div class="mt-auto flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">TRADE-ROUTES</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">DYNASTIC-SHIFT</span>
+</div>
+</div>
+</article>
+<!-- Archive Card 2 -->
+<article class="bg-[#F9F5F0] border border-[#E8DFCC] archive-card-hover relative flex flex-col group h-full">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="p-8 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-secondary">REF: MA-4091</span>
+<div class="w-10 h-10 rounded-full border border-dashed border-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">history</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Mughal Architectural Geometry</h3>
+<p class="font-caption text-on-surface-variant italic mb-6">Art History</p>
+<div class="double-rule mb-6"></div>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">54</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sources</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">12</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Events</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">89</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Entities</p>
+</div>
+</div>
+<div class="mt-auto flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">SYMMETRY</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">ISLAMIC-ART</span>
+</div>
+</div>
+</article>
+<!-- Archive Card 3 -->
+<article class="bg-[#F9F5F0] border border-[#E8DFCC] archive-card-hover relative flex flex-col group h-full">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="p-8 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-secondary">REF: RE-8821</span>
+<div class="w-10 h-10 rounded-full border border-dashed border-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">hourglass_empty</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Maritime Law in Venice</h3>
+<p class="font-caption text-on-surface-variant italic mb-6">Legal Archaeology</p>
+<div class="double-rule mb-6"></div>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">218</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sources</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">204</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Events</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">156</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Entities</p>
+</div>
+</div>
+<div class="mt-auto flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">MEDITERRANEAN</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">ADRIATIC</span>
+</div>
+</div>
+</article>
+<!-- Archive Card 4 -->
+<article class="bg-[#F9F5F0] border border-[#E8DFCC] archive-card-hover relative flex flex-col group h-full">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="p-8 flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-secondary">REF: CL-0034</span>
+<div class="w-10 h-10 rounded-full border border-dashed border-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">priority_high</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-primary mb-2">Post-Roman Britain Collapse</h3>
+<p class="font-caption text-on-surface-variant italic mb-6">Societal Decay Analysis</p>
+<div class="double-rule mb-6"></div>
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">312</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Sources</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">45</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Events</p>
+</div>
+<div class="text-center">
+<p class="text-[20px] font-display-lg text-primary">1,024</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Entities</p>
+</div>
+</div>
+<div class="mt-auto flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">BRITANNIA</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] whitespace-nowrap">MIGRATION</span>
+</div>
+</div>
+</article>
+<!-- Card Placeholder / New -->
+<div class="bg-transparent border-2 border-dashed border-[#E8DFCC] flex flex-col items-center justify-center p-12 text-center group cursor-pointer hover:border-secondary transition-colors">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-4 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-outline text-[32px] group-hover:text-secondary">add_notes</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-secondary">Initialize New Archive</p>
+</div>
+</div>
+<!-- Dashboard Footer Action -->
+<div class="mt-20 flex flex-col items-center">
+<div class="w-full max-w-lg p-1 border border-surface-variant bg-surface-container-low">
+<div class="border border-surface-variant p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<p class="font-display-lg text-headline-sm text-primary">Catalog Metrics</p>
+<p class="font-caption text-on-surface-variant">4 Active Collections | 12.4k Sources Indexed</p>
+</div>
+<button class="bg-primary text-background px-8 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary transition-colors duration-300">
+                            View Global Index
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Assistant Seal (Conceptual FAB) -->
+<div class="fixed bottom-10 right-10 z-50">
+<button class="w-16 h-16 rounded-full bg-primary text-background shadow-2xl flex items-center justify-center hover:bg-secondary transition-all transform hover:scale-110 active:scale-95 group">
+<span class="material-symbols-outlined text-[28px]">auto_stories</span>
+<div class="absolute bottom-full right-0 mb-4 bg-primary text-background px-4 py-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+<p class="font-label-caps text-[10px] uppercase tracking-widest">Ask Assistant</p>
+</div>
+</button>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-low border-t border-surface-variant flex items-center justify-around z-50">
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">library_books</span>
+<span class="font-label-caps text-[10px]">COLLECTIONS</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-[10px]">WORKSPACE</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-caps text-[10px]">ASSISTANT</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-[10px]">PROFILE</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction: Scroll reveal for cards
+        const cards = document.querySelectorAll('article');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('border-primary');
+            searchInput.parentElement.classList.remove('border-secondary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.add('border-secondary');
+            searchInput.parentElement.classList.remove('border-primary');
+        });
+    </script>
+</body></html>

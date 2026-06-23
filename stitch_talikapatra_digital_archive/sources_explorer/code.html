@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Talikapatra | Sources Explorer</title>
+<!-- Google Fonts: EB Garamond for display, Inter for body -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#ddd9d5",
+                    "primary-container": "#1a2b3c",
+                    "primary": "#041627",
+                    "surface-container-high": "#ebe8e3",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fdcb9b",
+                    "primary-fixed": "#d2e4fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e6e2dd",
+                    "on-tertiary-container": "#cd7880",
+                    "secondary-fixed": "#ffdcbd",
+                    "on-secondary-container": "#79542d",
+                    "tertiary-container": "#4f141d",
+                    "inverse-primary": "#b7c8de",
+                    "surface-container": "#f1ede8",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1c1c19",
+                    "outline": "#74777d",
+                    "secondary": "#7c5730",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-tint": "#4f6073",
+                    "secondary-fixed-dim": "#eebd8e",
+                    "surface-container-low": "#f7f3ee",
+                    "on-secondary-fixed-variant": "#61401b",
+                    "tertiary": "#33010a",
+                    "on-primary-container": "#8192a7",
+                    "background": "#fdf9f4",
+                    "inverse-on-surface": "#f4f0eb",
+                    "on-error": "#ffffff",
+                    "surface": "#fdf9f4",
+                    "on-tertiary-fixed": "#3c0610",
+                    "outline-variant": "#c4c6cd",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "on-primary-fixed": "#0b1d2d",
+                    "surface-variant": "#e6e2dd",
+                    "surface-bright": "#fdf9f4",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#b7c8de",
+                    "inverse-surface": "#31302d",
+                    "on-tertiary-fixed-variant": "#753139",
+                    "on-primary-fixed-variant": "#38485a",
+                    "on-surface": "#1c1c19",
+                    "tertiary-fixed-dim": "#ffb2b8",
+                    "on-secondary-fixed": "#2c1600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["EB Garamond"],
+                    "headline-md": ["EB Garamond"],
+                    "body-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-sm": ["EB Garamond"],
+                    "display-lg-mobile": ["EB Garamond"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "caption": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .aged-paper {
+            background-color: #F9F5F0;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(166, 124, 82, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+            box-shadow: inset 0 0 100px rgba(166, 124, 82, 0.05);
+        }
+        .double-rule {
+            border-top: 1px solid #E8DFCC;
+            border-bottom: 1px solid #E8DFCC;
+            height: 4px;
+            margin: 8px 0;
+        }
+        .curator-desk {
+            background-color: #F2E8D5;
+            min-height: 100vh;
+        }
+        .manuscript-reader {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .selection-rail {
+            width: 4px;
+            height: 100%;
+            background-color: #A67C52;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .notebook-input {
+            border: none;
+            border-bottom: 1px solid #A67C52;
+            background: transparent;
+            padding: 4px 0;
+        }
+        .notebook-input:focus {
+            outline: none;
+            border-bottom-width: 2px;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-full py-8 px-4 gap-4 bg-surface-container-low border-r border-surface-variant w-72 shrink-0">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-6">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait of a distinguished historical researcher in a dimly lit library, wearing spectacles and a wool vest. The style is soft focus, warm sepia tones, evoking academic authority and meticulous study within the Digital Scriptorium brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQiwEXB3sZJXAgXwo8Fa6L6lmQp8Fnymv4RiateiYkHZWQCznsqn810sbYNB5nnwO-8lDxfLr2i2H45MinRp6zlY5BArYjAksCvbq3eBq_d1-MtQT6PfmYF7kV8OrVW_OB1N5stIK6VbiOee0YiFr6kG65qMWPrpxkHYZGPtj0W5-RmfB1MP-KVeAUnevhJN8sguLsIDeDI0c7D54SVwazUQBqMsjA9mNM5IAO2uxAjut0wyqCqPKGJiPuRxN-f96i8bmOX_QLvA"/>
+<div>
+<h1 class="font-display-lg text-headline-sm text-primary tracking-tight">Library Index</h1>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Archives of Antiquity</p>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary py-3 px-4 rounded flex items-center justify-center gap-2 hover:bg-secondary transition-colors duration-200 group">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">New Investigation</span>
+</button>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-highest transition-all group" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Collections</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-highest transition-all group" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Workspace</span>
+</a>
+<!-- ACTIVE TAB: Sources -->
+<a class="flex items-center gap-4 px-4 py-3 rounded bg-secondary-container text-on-secondary-container border-l-4 border-secondary group" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest font-bold">Sources</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-highest transition-all group" href="#">
+<span class="material-symbols-outlined">timeline</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Chronology</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-highest transition-all group" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Actors</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded text-on-surface-variant hover:bg-surface-container-highest transition-all group" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest">Assistant</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-surface-variant">
+<div class="flex items-center gap-4 px-4 py-3 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="text-caption font-caption">V. 2.4.1 Archetype</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col h-full bg-background overflow-hidden relative">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center w-full px-gutter py-4 h-20 bg-background border-b border-surface-variant shrink-0 z-10">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-headline-md text-primary tracking-tight">Talikapatra</span>
+<div class="hidden lg:flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="notebook-input w-64 text-body-md font-body-md" placeholder="Search archives..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">settings</span>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Curator Profile</span>
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Area: The Curator's Desk -->
+<div class="flex-1 overflow-y-auto curator-desk p-8 lg:p-12">
+<div class="max-w-container-max mx-auto space-y-12">
+<!-- Page Heading -->
+<div class="flex flex-col md:flex-row justify-between items-end gap-4">
+<div>
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-secondary mb-2">Inventory Management</p>
+<h2 class="font-display-lg text-display-lg text-primary">Sources Explorer</h2>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-primary text-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-surface-container-high transition-colors">Filter Catalogue</button>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary transition-colors">Export Ledger</button>
+</div>
+</div>
+<!-- Layout: Split View or Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- List of Source Cards (4 Cols) -->
+<div class="lg:col-span-4 space-y-6">
+<h3 class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant border-b border-outline-variant pb-2">Active Collected Records</h3>
+<!-- Card 1: Active/Selected -->
+<div class="relative bg-white border border-surface-variant p-6 transition-all shadow-sm hover:shadow-md cursor-pointer group">
+<div class="selection-rail"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-[10px] bg-surface-container px-2 py-0.5 uppercase tracking-tighter">MS-7712</span>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-caps text-label-caps">85%</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-primary mb-1">The Periplus of the Erythraean Sea</h4>
+<p class="font-body-md text-on-surface-variant text-sm italic mb-4">Greek Manuscript, 1st Century AD</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-dotted border-outline-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-[10px]">Manuscript</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary">arrow_right_alt</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="relative bg-surface-container-low border border-surface-variant p-6 transition-all hover:bg-white cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-[10px] bg-surface-container px-2 py-0.5 uppercase tracking-tighter">TR-0045</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="font-label-caps text-label-caps">72%</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-primary mb-1">Berth Ledger of Musiris</h4>
+<p class="font-body-md text-on-surface-variant text-sm italic mb-4">Trade Ledger, Coptos Records</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-dotted border-outline-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-[10px]">Trade Ledger</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary">arrow_right_alt</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="relative bg-surface-container-low border border-surface-variant p-6 transition-all hover:bg-white cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-[10px] bg-surface-container px-2 py-0.5 uppercase tracking-tighter">CP-1920</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="font-label-caps text-label-caps">94%</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-primary mb-1">Muziris Papyrus Fragment</h4>
+<p class="font-body-md text-on-surface-variant text-sm italic mb-4">Commercial Contract, Alexandria</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-dotted border-outline-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-[10px]">Papyrus</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary">arrow_right_alt</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="relative bg-surface-container-low border border-surface-variant p-6 transition-all hover:bg-white cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-caps text-label-caps text-[10px] bg-surface-container px-2 py-0.5 uppercase tracking-tighter">IN-4421</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="font-label-caps text-label-caps">61%</span>
+</div>
+</div>
+<h4 class="font-headline-sm text-primary mb-1">The Indo-Roman Spice Manifest</h4>
+<p class="font-body-md text-on-surface-variant text-sm italic mb-4">Inventory Scroll, Arikamedu</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-dotted border-outline-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-[10px]">Inventory</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<!-- Reader View (8 Cols) -->
+<div class="lg:col-span-8">
+<div class="aged-paper border border-[#E8DFCC] p-12 lg:p-20 shadow-xl manuscript-reader min-h-[1000px]">
+<!-- Reader Header -->
+<div class="text-center mb-16">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-dashed border-secondary mb-6">
+<span class="font-display-lg text-secondary">A</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-primary mb-2">The Periplus of the Erythraean Sea</h3>
+<div class="double-rule w-32 mx-auto"></div>
+<p class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant mt-4">Codex Fragmentum • AD 40—70</p>
+</div>
+<!-- Reader Content -->
+<div class="font-display-lg text-body-lg text-primary-container leading-relaxed space-y-8 first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-secondary">
+<p>
+                                        Of the designated ports on the Erythraean Sea, and the market-towns around the same, the first is the Egyptian port of Mussel Harbor. To those sailing from this place, the voyage to Berenice is toward the south, about 4,000 stadia. Both harbors are at the extremity of Egypt, and are bays of the Erythraean Sea.
+                                    </p>
+<p>
+                                        Beyond Berenice, the coast curves in a great circle toward the east. The country of the Berbers, which is very long, is called Azania. Here there are no harbors, but only anchorages and watering-places. The natives are of great stature, and each has his own place of residence, and is governed by his own chief.
+                                    </p>
+<!-- Embedded Citation/Footnote Reference -->
+<div class="pl-8 border-l border-secondary my-12 italic text-on-surface-variant font-body-md">
+                                        "The coast of the country of the Berbers is subject to the King of the Mapharitic region, who resides at the city of Muza."
+                                        <span class="block mt-2 font-label-caps text-[10px] uppercase tracking-widest text-secondary">— Marginalia by Casson (1989)</span>
+</div>
+<p>
+                                        From this point, sailing across the adjacent bay, there is another market-town of the Berbers, which is called Malao, distant a two days' sail; the anchorage is an open roadstead, sheltered by a spit running out from the east. Here the natives are more peaceable. There are imported into this place the things already mentioned, and also many tunics, and cloaks from Egypt, finished and dyed; drinking-cups, sheets of soft copper in thin layers, iron, and gold and silver coin, not much.
+                                    </p>
+</div>
+<!-- Footnotes -->
+<div class="mt-24 pt-8 border-t border-outline-variant font-body-md text-caption text-on-surface-variant space-y-2">
+<p><sup class="text-secondary font-bold mr-1">1</sup> Erythraean Sea: The classical name for the Indian Ocean, including the Red Sea and Persian Gulf.</p>
+<p><sup class="text-secondary font-bold mr-1">2</sup> Stadia: A Greek unit of length, approximately 185 meters.</p>
+<p><sup class="text-secondary font-bold mr-1">3</sup> Muza: A major port city on the Red Sea in ancient Yemen.</p>
+</div>
+<!-- Floating Metadata Action -->
+<div class="absolute top-8 right-8">
+<a class="flex items-center gap-2 px-4 py-2 bg-white/50 backdrop-blur border border-surface-variant rounded-full text-caption hover:bg-secondary hover:text-white transition-all group" href="https://example.org/archives/ms-7712" target="_blank">
+<span class="material-symbols-outlined text-[16px]">link</span>
+<span class="font-label-caps text-[10px] uppercase">View Original Manuscript</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contextual FAB (Only for appropriate screens) -->
+<button class="absolute bottom-8 right-8 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-on-primary shadow-2xl hover:bg-secondary transition-transform active:scale-95 group z-20">
+<span class="material-symbols-outlined text-[28px] group-hover:rotate-12 transition-transform">auto_fix</span>
+<div class="absolute right-20 bg-white border border-surface-variant px-4 py-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+<span class="font-label-caps text-label-caps text-primary uppercase">Analyze Fragment</span>
+</div>
+</button>
+</main>
+</div>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container border-t border-surface-variant flex items-center justify-around px-4 z-30">
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">library_books</span>
+<span class="text-[10px] font-label-caps uppercase mt-1">Files</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary border-t-2 border-secondary h-full">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="text-[10px] font-label-caps uppercase mt-1 font-bold">Sources</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">timeline</span>
+<span class="text-[10px] font-label-caps uppercase mt-1">Time</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="text-[10px] font-label-caps uppercase mt-1">Ask</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions for the "Curator's Desk"
+        document.querySelectorAll('.curator-desk .relative.bg-surface-container-low').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove existing selection rail
+                document.querySelectorAll('.selection-rail').forEach(rail => rail.remove());
+                document.querySelectorAll('.bg-white.shadow-sm').forEach(c => {
+                    c.classList.remove('bg-white', 'shadow-sm');
+                    c.classList.add('bg-surface-container-low');
+                });
+
+                // Add selection state
+                this.classList.remove('bg-surface-container-low');
+                this.classList.add('bg-white', 'shadow-sm');
+                const rail = document.createElement('div');
+                rail.className = 'selection-rail';
+                this.prepend(rail);
+
+                // Simulation: Scroll to reader top
+                document.querySelector('.manuscript-reader').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body></html>
