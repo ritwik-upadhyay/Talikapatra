@@ -12,8 +12,8 @@ from backend.app.models.workspace import User
 # Setup password hashing context
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-# Setup OAuth2 scheme
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
+# Setup OAuth2 scheme (make auto_error=False to allow open-access mode without tokens)
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login", auto_error=False)
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return pwd_context.verify(plain_password, hashed_password)
@@ -31,21 +31,13 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
     encoded_jwt = jwt.encode(to_encode, settings.JWT_SECRET, algorithm=settings.ALGORITHM)
     return encoded_jwt
 
-def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)) -> User:
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    try:
-        payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.ALGORITHM])
-        email: str = payload.get("sub")
-        if email is None:
-            raise credentials_exception
-    except jwt.PyJWTError:
-        raise credentials_exception
-        
-    user = db.query(User).filter(User.email == email).first()
-    if user is None:
-        raise credentials_exception
+def get_current_user(token: Optional[str] = Depends(oauth2_scheme), db: Session = Depends(get_db)) -> User:
+    # Open-access mode: transparently fallback to/create the default system user
+    default_email = "archivist@talikapatra.org"
+    user = db.query(User).filter(User.email == default_email).first()
+    if not user:
+        user = User(email=default_email, password_hash="hashed_placeholder")
+        db.add(user)
+        db.commit()
+        db.refresh(user)
     return user

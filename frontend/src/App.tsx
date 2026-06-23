@@ -11,8 +11,11 @@ export interface UserSession {
 }
 
 export default function App() {
-  const [screen, setScreen] = useState<'auth' | 'dashboard' | 'workspace'>('auth');
-  const [session, setSession] = useState<UserSession | null>(null);
+  const [screen, setScreen] = useState<'auth' | 'dashboard' | 'workspace'>('dashboard');
+  const [session, setSession] = useState<UserSession | null>({
+    token: 'mock_token',
+    email: 'archivist@talikapatra.org'
+  });
   const [selectedWorkspaceId, setSelectedWorkspaceId] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<'research' | 'documents' | 'timeline' | 'entities' | 'chat'>('research');
   const [workspaceTitle, setWorkspaceTitle] = useState<string | null>(null);
@@ -35,12 +38,9 @@ export default function App() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('email');
-    setSession(null);
     setSelectedWorkspaceId(null);
     setWorkspaceTitle(null);
-    setScreen('auth');
+    setScreen('dashboard');
   };
 
   const handleOpenWorkspace = (workspaceId: number) => {
@@ -206,22 +206,15 @@ export default function App() {
 
         {/* PROFILE CARD */}
         <div className="mt-auto pt-6 border-t border-surface-variant">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-aged-paper border border-bronze flex items-center justify-center text-secondary font-semibold text-lg uppercase shadow-inner">
-              {session.email.substring(0, 2)}
+              {session?.email.substring(0, 2) || 'AR'}
             </div>
             <div className="min-w-0">
-              <p className="font-label-caps text-[10px] uppercase text-secondary">Researcher</p>
-              <p className="text-sm font-semibold truncate text-primary">{session.email}</p>
+              <p className="font-label-caps text-[10px] uppercase text-secondary">Researcher Mode</p>
+              <p className="text-sm font-semibold truncate text-primary">{session?.email || 'archivist@talikapatra.org'}</p>
             </div>
           </div>
-          <button 
-            onClick={handleLogout}
-            className="w-full py-2.5 border border-error text-error text-xs uppercase tracking-widest font-label-caps hover:bg-red-50 transition-colors flex items-center justify-center gap-1"
-          >
-            <span className="material-symbols-outlined text-[16px]">logout</span>
-            Sign Out
-          </button>
         </div>
       </aside>
 
@@ -243,7 +236,7 @@ export default function App() {
             
             <div className="flex items-center gap-3 pl-4 border-l border-surface-variant">
               <div className="w-8 h-8 rounded-full overflow-hidden border border-secondary flex items-center justify-center bg-secondary-container text-on-secondary-container text-[10px] font-semibold uppercase">
-                {session.email.substring(0, 2)}
+                {session?.email.substring(0, 2) || 'AR'}
               </div>
               <span className="font-label-caps text-[10px] uppercase tracking-widest hidden lg:block text-on-surface-variant">Curator Profile</span>
             </div>
