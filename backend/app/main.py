@@ -3,6 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from backend.app.core.config import settings
 from backend.app.api import auth, workspaces, documents, research, chat
+from backend.app.core.database import engine, Base
+from backend.app.models.workspace import User, Workspace, Document, TimelineEvent, Entity, ResearchTrail
+
+# Create database tables automatically on startup
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Talikapatra MVP API",
